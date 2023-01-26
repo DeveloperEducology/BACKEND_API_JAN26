@@ -28,9 +28,6 @@ app.use('/api/chapter', chapterRoutes)
 app.use('/api/unit', unitRoutes)
 app.use('/api/question', questionRoutes)
 
-app.get('/test',(req,res)=>{
-res.send("Hello world 🌎 ")
-}
 
 
 // connect to db
