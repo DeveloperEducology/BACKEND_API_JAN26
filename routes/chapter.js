@@ -18,7 +18,7 @@ router.use(requireAuth)
 router.get('/:id', getChapter)
 
 // Get all classes
-router.post('/chapters', getChapters)
+router.get('/', getChapters)
 
 router.post('/new-chapter', newChapter)
 
