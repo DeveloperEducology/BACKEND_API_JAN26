@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const getChapters = async (req, res) => {
   const user_id = req.user._id;
 
-  const chapters = await Class.find({ user_id }).sort({ createdAt: -1 });
+  const chapters = await Chapter.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(chapters);
 };

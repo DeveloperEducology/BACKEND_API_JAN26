@@ -9,20 +9,20 @@ const mongoose = require("mongoose");
 const getClasses = async (req, res) => {
   const user_id = req.user._id;
 
-  const classes = await Class.find({ user_id }).sort({ createdAt: -1 });
-
+  // const classes = await Class.find({ user_id }).sort({ createdAt: -1 });
+  const classes = await Class.find().sort({ createdAt: -1 });
   res.status(200).json(classes);
 };
 
 // get a single workout
 const getClass = async (req, res) => {
-  const { id } = req.params;
+  const { _id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).json({ error: "No such class" });
   }
 
-  const newclass = await Class.findById(id);
+  const newclass = await Class.findById(_id);
 
   if (!newclass) {
     return res.status(404).json({ error: "No such class" });

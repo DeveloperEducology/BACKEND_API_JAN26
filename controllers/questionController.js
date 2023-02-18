@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 const getQuestions = async (req, res) => {
   const user_id = req.user._id;
 
-  const questions = await Question.find({ user_id }).sort({ createdAt: -1 });
+  const questions = await Question.find().sort({ createdAt: -1 });
+  // const questions = await Question.find({ user_id }).sort({ createdAt: -1 });
 
   res.status(200).json(questions);
 };

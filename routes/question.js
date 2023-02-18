@@ -18,7 +18,7 @@ router.use(requireAuth)
 router.get('/:id', getQuestion)
 
 // Get all classes
-router.post('/questions', getQuestions)
+router.get('/', getQuestions)
 
 router.post('/new-question', newQuestion)
 
