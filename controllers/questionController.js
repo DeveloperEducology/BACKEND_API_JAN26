@@ -32,15 +32,16 @@ const getQuestion = async (req, res) => {
 // create a new class
 
 const newQuestion = async (req, res) => {
-  const { title, question, answers, correct_answer, blank_answer, explanation,subject_type, difficulty, question_type, unitIds } = req.body;
+  const { title, question, questionImage, answers, correct_answer,answer_selected, blank_answer, explanation,subject,topic, difficulty, ans_type, unitIds } = req.body;
 
   let emptyFields = [];
 
-  if (!title) {
-    emptyFields.push("title");
-  }
+ 
   if (!unitIds) {
     emptyFields.push("unitIds");
+  }
+  if (!correct_answer) {
+    emptyFields.push("correct_answer");
   }
 
   if (emptyFields.length > 0) {
@@ -53,7 +54,7 @@ const newQuestion = async (req, res) => {
   try {
     const user_id = req.user._id;
     const newquestion = await Question.create({
-        title, question, answers, correct_answer, blank_answer, explanation, subject_type, difficulty, question_type, unitIds, user_id
+        title, question,questionImage, answers, correct_answer,answer_selected, blank_answer, explanation, subject,topic, difficulty, ans_type, unitIds, user_id
     });
     res.status(200).json(newquestion);
   } catch (error) {

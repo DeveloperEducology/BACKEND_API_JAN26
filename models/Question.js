@@ -8,8 +8,9 @@ const questionSchema = new mongoose.Schema({
   title: {
     type: String
   },
-  question: Array,
-  type:{ type: String },
+  question:{ type: String },
+  
+  questionImage: { type: String },
   
   answers: Array,
   type: {
@@ -19,6 +20,9 @@ const questionSchema = new mongoose.Schema({
   type: {
     type: String,
   },
+  answer_selected: {
+    type: String
+  },
   blank_answer: {
     type: String,
   },
@@ -26,14 +30,19 @@ const questionSchema = new mongoose.Schema({
   type: {
     type: String
   },
-  subject_type: Array,
-  type: {
+  subject:{
     type: String
   },
-  difficuly: {
+  topic: {
     type: String
   },
-  question_type: {
+  category: {
+    type: String
+  },
+  difficulty: {
+    type: String
+  },
+  ans_type: {
     type: String
   },
   user_id: {
